@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard Admin{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1>Dashboard Admin</h1>
+    <p>Selamat datang kembali, {{ session['username'] }}</p>
+</div>
+
+<div class="stats-grid">
+
+    <div class="stat-card blue">
+        <h4>Total Barang</h4>
+        <h2>{{ total_barang }}</h2>
+    </div>
+
+    <div class="stat-card orange">
+        <h4>Barang Dipinjam</h4>
+        <h2>{{ total_pinjam }}</h2>
+    </div>
+
+    <div class="stat-card green">
+        <h4>Barang Tersedia</h4>
+        <h2>{{ barang_tersedia }}</h2>
+    </div>
+
+    <div class="stat-card red">
+        <h4>Menunggu Persetujuan</h4>
+        <h2>{{ menunggu|length }}</h2>
+    </div>
+
+</div>
+
+<div class="table-section">
+
+    <div class="section-header">
+        <h2>Peminjaman Terbaru</h2>
+        <a href="/admin/peminjaman">Lihat Semua</a>
+    </div>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Peminjam</th>
+                <th>Kelas</th>
+                <th>Tanggal</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for p in menunggu %}
+
+            <tr>
+                <td>{{ p['id'] }}</td>
+                <td>{{ p['nama_peminjam'] }}</td>
+                <td>{{ p['kelas'] }}</td>
+                <td>{{ p['tanggal_pinjam'] }}</td>
+                <td>
+                    <span class="status">
+                        {{ p['status'] }}
+                    </span>
+                </td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<div class="chart-card">
+
+    <h2>Statistik Sistem</h2>
+
+    <div class="chart-grid">
+
+        <div class="chart-item">
+            <h3>{{ total_barang }}</h3>
+            <p>Total Barang</p>
+        </div>
+
+        <div class="chart-item">
+            <h3>{{ total_pinjam }}</h3>
+            <p>Dipinjam</p>
+        </div>
+
+        <div class="chart-item">
+            <h3>{{ barang_tersedia }}</h3>
+            <p>Tersedia</p>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

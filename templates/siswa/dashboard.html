@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="dashboard">
+
+    <div class="dashboard-header">
+        <h1>Dashboard Siswa</h1>
+        <p>Selamat datang di Sistem Peminjaman Barang SMKN 26 Jakarta</p>
+    </div>
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <h4>Total Barang</h4>
+            <h2>{{ total_barang }}</h2>
+        </div>
+
+        <div class="stat-card">
+            <h4>Total Pengajuan</h4>
+            <h2>{{ total_pinjam }}</h2>
+        </div>
+
+        <div class="stat-card">
+            <h4>Barang Tersedia</h4>
+            <h2>{{ tersedia }}</h2>
+        </div>
+
+        <div class="stat-card">
+            <h4>Peminjaman Aktif</h4>
+            <h2>{{ aktif }}</h2>
+        </div>
+
+    </div>
+
+    <div class="row-2">
+
+        <div class="panel">
+            <h3>Peminjaman Barang</h3>
+
+            <p>
+                Ajukan peminjaman barang sekolah dengan mudah melalui sistem ini.
+            </p>
+
+            <a href="/barang" class="btn-primary">
+                Lihat Barang
+            </a>
+        </div>
+
+        <div class="panel">
+            <h3>Status Aktif</h3>
+
+            <div class="big-number">
+                {{ aktif }}
+            </div>
+
+            <p>Peminjaman Disetujui</p>
+        </div>
+
+    </div>
+
+    <div class="row-3">
+
+        <div class="panel">
+            <h3>Menu Cepat</h3>
+
+            <a href="/barang" class="btn-primary">
+                Barang
+            </a>
+        </div>
+
+        <div class="panel">
+            <h3>Riwayat</h3>
+
+            <a href="/riwayat" class="btn-primary">
+                Lihat Riwayat
+            </a>
+        </div>
+
+        <div class="panel">
+            <h3>Aktivitas Terakhir</h3>
+
+            <ul class="status-list">
+
+                {% if aktivitas %}
+
+                    {% for item in aktivitas %}
+                    <li>
+                        {{ item['barang'] }} - {{ item['status'] }}
+                    </li>
+                    {% endfor %}
+
+                {% else %}
+
+                    <li>Belum ada aktivitas.</li>
+
+                {% endif %}
+
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

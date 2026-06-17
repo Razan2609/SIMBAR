@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1>Profil Saya</h1>
+    <p>Informasi akun pengguna yang sedang login</p>
+</div>
+
+<div class="admin-card">
+
+    <div class="profile-box">
+
+        <div class="profile-avatar">
+            👤
+        </div>
+
+        <div class="profile-info">
+
+            <div class="info-item">
+                <label>Username</label>
+                <h3>{{ session['username'] }}</h3>
+            </div>
+
+            <div class="info-item">
+                <label>Role</label>
+                <h3>{{ session['role']|title }}</h3>
+            </div>
+
+            <a href="/logout" class="logout-btn">
+                🚪 Logout
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

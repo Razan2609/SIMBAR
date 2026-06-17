@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block title %}Kelola User{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='users.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1>Kelola User</h1>
+    <p>Tambah, lihat, dan hapus pengguna sistem.</p>
+</div>
+
+<div class="admin-card">
+
+    <h3>Tambah User</h3>
+
+    <form action="/tambah-user" method="POST" class="user-form">
+
+        <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            required
+        >
+
+        <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+        >
+
+        <select name="role" required>
+            <option value="">Pilih Role</option>
+            <option value="admin">Admin</option>
+            <option value="siswa">Siswa</option>
+        </select>
+
+        <button type="submit" class="btn-tambah">
+            Tambah User
+        </button>
+
+    </form>
+
+</div>
+
+<br>
+
+<div class="admin-card">
+
+    <h3>Daftar User</h3>
+
+    <table class="barang-table">
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Role</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for user in data %}
+
+            <tr>
+
+                <td>{{ user['id'] }}</td>
+
+                <td>{{ user['username'] }}</td>
+
+                <td>{{ user['role'] }}</td>
+
+                <td>
+
+                    {% if user['role'] != 'superadmin' %}
+
+                    <a href="/hapus-user/{{ user['id'] }}"
+                       class="btn-hapus">
+                        Hapus
+                    </a>
+
+                    {% else %}
+
+                    <span style="color:#64748b;">Protected</span>
+
+                    {% endif %}
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

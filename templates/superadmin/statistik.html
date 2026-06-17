@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}Statistik{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='superadmin.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1>Statistik Sistem</h1>
+    <p>Analisis data peminjaman barang SMKN 26 Jakarta.</p>
+</div>
+
+<div class="stats-grid">
+
+    <div class="stat-card">
+        <h4>Total User</h4>
+        <h2>{{ total_user }}</h2>
+    </div>
+
+    <div class="stat-card">
+        <h4>Total Barang</h4>
+        <h2>{{ total_barang }}</h2>
+    </div>
+
+    <div class="stat-card">
+        <h4>Total Peminjaman</h4>
+        <h2>{{ total_peminjaman }}</h2>
+    </div>
+
+    <div class="stat-card">
+        <h4>Disetujui</h4>
+        <h2>{{ total_disetujui }}</h2>
+    </div>
+
+    <div class="stat-card">
+        <h4>Dikembalikan</h4>
+        <h2>{{ total_dikembalikan }}</h2>
+    </div>
+
+</div>
+
+<div class="panel">
+
+    <h3>Barang Terpopuler</h3>
+
+    <table class="barang-table">
+
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama Barang</th>
+                <th>Total Dipinjam</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for item in barang_populer %}
+
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ item['barang'] }}</td>
+                <td>{{ item['jumlah'] }}</td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

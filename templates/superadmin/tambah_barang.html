@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Tambah Barang{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='barang.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1>Tambah Barang</h1>
+    <p>Tambahkan barang baru ke sistem.</p>
+</div>
+
+<div class="admin-card">
+
+    <form action="/tambah-barang" method="POST">
+
+        <div style="margin-bottom:15px;">
+            <label>Nama Barang</label>
+            <input
+                type="text"
+                name="nama"
+                required
+                style="width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;"
+            >
+        </div>
+
+        <div style="margin-bottom:20px;">
+            <label>Stok</label>
+            <input
+                type="number"
+                name="stok"
+                min="1"
+                required
+                style="width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;"
+            >
+        </div>
+
+        <button type="submit" class="btn-tambah">
+            Simpan Barang
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+
+{% block title %}Riwayat{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='riwayat.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1>Riwayat Peminjaman</h1>
+    <p>Lihat seluruh riwayat peminjaman barang Anda.</p>
+</div>
+
+<div class="riwayat-card">
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Barang</th>
+                <th>Tanggal Pinjam</th>
+                <th>Keperluan</th>
+                <th>Status</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% if data %}
+
+                {% for item in data %}
+
+                <tr>
+
+                    <td>{{ loop.index }}</td>
+
+                    <td>{{ item['barang'] }}</td>
+
+                    <td>{{ item['tanggal_pinjam'] }}</td>
+
+                    <td>{{ item['keperluan'] }}</td>
+
+                    <td>
+
+                        {% if item['status'] == 'Menunggu' %}
+
+                            <span class="status-menunggu">
+                                Menunggu
+                            </span>
+
+                        {% elif item['status'] == 'Disetujui' %}
+
+                            <span class="status-disetujui">
+                                Disetujui
+                            </span>
+
+                        {% elif item['status'] == 'Dikembalikan' %}
+
+                            <span class="status-dikembalikan">
+                                Dikembalikan
+                            </span>
+
+                        {% else %}
+
+                            <span class="status-ditolak">
+                                Ditolak
+                            </span>
+
+                        {% endif %}
+
+                    </td>
+
+                    <td>
+
+                        {% if item['status'] == 'Disetujui' %}
+
+                            <a href="/kembalikan/{{ item['id'] }}"
+                               class="btn-kembali">
+                                Kembalikan
+                            </a>
+
+                        {% else %}
+
+                            -
+
+                        {% endif %}
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            {% else %}
+
+                <tr>
+                    <td colspan="6" style="text-align:center;">
+                        Belum ada riwayat peminjaman.
+                    </td>
+                </tr>
+
+            {% endif %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

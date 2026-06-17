@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Peminjaman{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='peminjaman.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1>Ajukan Peminjaman</h1>
+    <p>Silakan isi form peminjaman barang</p>
+</div>
+
+<div class="form-card">
+
+    <form action="/ajukan-peminjaman" method="POST">
+
+
+<select name="barang" required>
+    <option value="">-- Pilih Barang --</option>
+
+    {% for b in barang %}
+    <option value="{{ b['nama'] }}">
+        {{ b['nama'] }}
+    </option>
+    {% endfor %}
+</select>
+
+<label>Jumlah</label>
+<input
+    type="number"
+    name="jumlah"
+    min="1"
+    value="1"
+    required
+>
+
+<label>Tanggal Pinjam</label>
+<input
+    type="date"
+    name="tanggal"
+    required
+>
+
+<label>Keperluan</label>
+<textarea
+    name="keperluan"
+    rows="4"
+    required
+></textarea>
+
+        <button type="submit">
+            Kirim Pengajuan
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

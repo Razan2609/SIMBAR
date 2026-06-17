@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block title %}Data Barang{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='barang.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1>Data Barang</h1>
+    <p>Daftar barang yang tersedia untuk dipinjam.</p>
+</div>
+
+{% if is_superadmin %}
+<div class="action-bar">
+    <a href="/tambah-barang" class="btn-tambah">
+        + Tambah Barang
+    </a>
+</div>
+{% endif %}
+
+<div class="table-card">
+
+    <table class="barang-table">
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nama Barang</th>
+                <th>Stok</th>
+
+                {% if is_superadmin %}
+                    <th>Aksi</th>
+                {% elif role == 'siswa' %}
+                    <th>Pinjam</th>
+                {% endif %}
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for barang in data_barang %}
+
+            <tr>
+
+                <td>{{ barang['id'] }}</td>
+
+                <td>{{ barang['nama'] }}</td>
+
+                <td>
+                    {% if barang['stok'] > 0 %}
+                        <span class="stok-tersedia">
+                            {{ barang['stok'] }}
+                        </span>
+                    {% else %}
+                        <span class="stok-habis">
+                            Habis
+                        </span>
+                    {% endif %}
+                </td>
+
+                {% if is_superadmin %}
+
+                <td>
+
+                    <a href="/edit-barang/{{ barang['id'] }}"
+                       class="btn-edit">
+                        Edit
+                    </a>
+
+                    <a href="/hapus-barang/{{ barang['id'] }}"
+                       class="btn-hapus"
+                       onclick="return confirm('Yakin ingin menghapus barang ini?')">
+                        Hapus
+                    </a>
+
+                </td>
+
+                {% elif role == 'siswa' %}
+
+                <td>
+
+                    {% if barang['stok'] > 0 %}
+                    <a href="/peminjaman?barang={{ barang['nama'] }}"
+                       class="btn-pinjam">
+                        Pinjam
+                    </a>
+                    {% else %}
+                    <button class="btn-disabled">
+                        Stok Habis
+                    </button>
+                    {% endif %}
+
+                </td>
+
+                {% endif %}
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

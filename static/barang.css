@@ -1,0 +1,168 @@
+.page-header{
+    margin-bottom:25px;
+}
+
+.page-header h1{
+    background: linear-gradient(90deg,#16a34a,#22c55e);
+    background-clip:text;
+    -webkit-background-clip:text;
+    color:transparent;
+    -webkit-text-fill-color:transparent;
+    text-align: center;
+}
+
+.page-header p{
+   color:#64748b;
+    margin-top:8px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.7;
+}
+
+/* SISWA */
+
+.barang-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+    gap:25px;
+}
+
+.barang-card{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.barang-card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.barang-body{
+    padding:20px;
+}
+
+.barang-body h3{
+    margin-bottom:10px;
+}
+
+.barang-body p{
+    color:#64748b;
+    margin-bottom:15px;
+}
+
+.btn-pinjam{
+    width:100%;
+    border:none;
+    padding:12px;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+}
+
+/* ADMIN */
+
+.admin-card{
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.btn-tambah{
+    border:none;
+    padding:12px 20px;
+    border-radius:10px;
+    background:#22c55e;
+    color:white;
+    cursor:pointer;
+    margin-bottom:20px;
+}
+
+.barang-table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.barang-table th{
+    background:#2563eb;
+    color:white;
+    padding:15px;
+    text-align:center;
+}
+
+.barang-table td{
+    padding:15px;
+    text-align:center;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.barang-table tr:hover{
+    background:#f8fafc;
+}
+
+/* Tombol tambah barang */
+.action-bar{
+    margin-bottom:20px;
+}
+
+.btn-tambah{
+    background:#2563eb;
+    color:white;
+    text-decoration:none;
+    padding:12px 18px;
+    border-radius:10px;
+    font-weight:600;
+}
+
+/* Tombol aksi */
+.btn-edit{
+    background:#f59e0b;
+    color:white;
+    text-decoration:none;
+    padding:8px 14px;
+    border-radius:8px;
+}
+
+.btn-hapus{
+    background:#ef4444;
+    color:white;
+    text-decoration:none;
+    padding:8px 14px;
+    border-radius:8px;
+    margin-left:5px;
+}
+
+/* Status stok */
+.stok-tersedia{
+    color:#16a34a;
+    font-weight:600;
+}
+
+.stok-habis{
+    color:#dc2626;
+    font-weight:600;
+}
+
+
+.admin-card form label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+    color:#334155;
+}
+
+.admin-card input{
+    width:100%;
+    padding:12px;
+    border:1px solid #dbeafe;
+    border-radius:10px;
+    margin-bottom:15px;
+}

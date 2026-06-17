@@ -1,0 +1,159 @@
+.page-header{
+    margin-bottom:25px;
+}
+
+.page-header h1{
+    color:#0f172a;
+}
+
+.page-header p{
+    color:#64748b;
+}
+
+/* FORM */
+
+.form-card{
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    margin-bottom:25px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.form-card h2{
+    margin-bottom:20px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:15px;
+}
+
+.form-group label{
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+.form-group input,
+.form-group textarea{
+    padding:12px;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+}
+
+.btn-ajukan{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+/* TABEL */
+
+.table-card{
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.table-card h2{
+    margin-bottom:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,
+td{
+    padding:15px;
+    border-bottom:1px solid #e5e7eb;
+    text-align:left;
+}
+
+th{
+    background:#f8fafc;
+}
+
+.menunggu{
+    color:#f59e0b;
+    font-weight:600;
+}
+
+.disetujui{
+    color:#16a34a;
+    font-weight:600;
+}
+
+.form-card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.form-card form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.form-card input,
+.form-card textarea{
+    padding:12px;
+    border:1px solid #dbe2ea;
+    border-radius:10px;
+    font-size:15px;
+}
+
+.form-card button{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:14px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.form-card select,
+.form-card input,
+.form-card textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #dbe2ea;
+    border-radius:10px;
+    font-size:15px;
+}
+
+select{
+    width:100%;
+    padding:14px 16px;
+    border:1px solid #dbe2ea;
+    border-radius:14px;
+    background:white;
+    font-size:15px;
+    font-weight:500;
+    cursor:pointer;
+
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='%2364748b' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 5.5L8 12l6.5-6.5' stroke='%2364748b' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;
+    background-position:right 15px center;
+
+    transition:.3s;
+}
+
+select:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 0 4px rgba(37,99,235,.15);
+    outline:none;
+}

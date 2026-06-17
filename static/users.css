@@ -1,0 +1,19 @@
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+thead{
+    background:#2563eb;
+    color:white;
+}
+
+th,td{
+    padding:15px;
+    border-bottom:1px solid #e5e7eb;
+    text-align:center;
+}
+
+tr:hover{
+    background:#f8fafc;
+}

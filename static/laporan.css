@@ -1,0 +1,84 @@
+.page-header{
+    margin-bottom:25px;
+    text-align: center;
+}
+
+.page-header h1{
+    background: linear-gradient(90deg,#2563eb,#06b6d4);
+
+    background-clip: text;          /* tambahkan ini */
+    -webkit-background-clip: text;
+
+    color: transparent;             /* tambahkan ini */
+    -webkit-text-fill-color: transparent;
+
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.page-header p{
+    color:#64748b;
+    margin-top:8px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.7;
+}
+
+.laporan-card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.laporan-info{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.icon{
+    font-size:50px;
+}
+
+.laporan-info h2{
+    margin:0;
+    color:#082a73;
+}
+
+.laporan-info p{
+    margin-top:8px;
+    color:#64748b;
+}
+
+.btn-export{
+    background:#16a34a;
+    color:white;
+    text-decoration:none;
+    padding:14px 24px;
+    border-radius:10px;
+    font-weight:600;
+}
+
+.btn-export:hover{
+    background:#15803d;
+}
+
+@media(max-width:768px){
+
+    .laporan-card{
+        flex-direction:column;
+        gap:20px;
+        text-align:center;
+    }
+
+    .laporan-info{
+        flex-direction:column;
+    }
+
+}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}SIMBAR{% endblock %}</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    {% block head %}{% endblock %}
+</head>
+<body>
+
+{% if session.get('user_id') %}
+
+<div class="sidebar">
+
+    <div class="sidebar-header">
+
+        <div class="logo-icon">
+            📦
+        </div>
+
+        <div class="logo-text">
+            <span>Peminjaman Barang</span>
+            <h2>SMKN 26 JAKARTA</h2>
+        </div>
+
+    </div>
+
+    <div class="menu">
+
+        <!-- ================= SUPER ADMIN ================= -->
+
+        {% if session.get('role') == 'superadmin' %}
+
+        <a href="/superadmin" class="menu-item">
+            📊 <span>Dashboard</span>
+        </a>
+
+        <a href="/users" class="menu-item">
+            👥 <span>Kelola User</span>
+        </a>
+
+        <a href="/barang" class="menu-item">
+            📦 <span>Data Barang</span>
+        </a>
+
+        <a href="/statistik" class="menu-item">
+    📈 <span>Statistik</span>
+</a>
+
+        <a href="/aktivitas" class="menu-item">
+    📜 <span>Log Aktivitas</span>
+</a>
+
+        <a href="/profil" class="menu-item">
+            👤 <span>Profil</span>
+        </a>
+
+        <!-- ================= ADMIN ================= -->
+
+        {% elif session.get('role') == 'admin' %}
+
+        <a href="/dashboard" class="menu-item">
+            📊 <span>Dashboard</span>
+        </a>
+
+        <a href="/barang" class="menu-item">
+            📦 <span>Data Barang</span>
+        </a>
+
+        <a href="/admin/peminjaman" class="menu-item">
+            📝 <span>Peminjaman</span>
+        </a>
+
+        <a href="/laporan" class="menu-item">
+            📋 <span>Laporan</span>
+        </a>
+
+        <a href="/profil" class="menu-item">
+            👤 <span>Profil Admin</span>
+        </a>
+
+        <!-- ================= SISWA ================= -->
+
+        {% else %}
+
+        <a href="/dashboard" class="menu-item">
+            📊 <span>Dashboard</span>
+        </a>
+
+        <a href="/barang" class="menu-item">
+            📦 <span>Barang</span>
+        </a>
+
+        <a href="/peminjaman" class="menu-item">
+            📝 <span>Peminjaman</span>
+        </a>
+
+        <a href="/riwayat" class="menu-item">
+            📋 <span>Riwayat</span>
+        </a>
+
+        <a href="/profil" class="menu-item">
+            👤 <span>Profil</span>
+        </a>
+
+        {% endif %}
+
+    </div>
+
+    <div class="sidebar-user">
+
+        <div class="avatar">
+            👤
+        </div>
+
+        <div class="user-info">
+            <small>Login sebagai</small>
+            <h4>{{ session.get('username') }}</h4>
+            <span>{{ session.get('role')|title }}</span>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="main-content">
+
+    {% block content %}
+    {% endblock %}
+
+</div>
+
+{% else %}
+
+{% block login_content %}
+{% endblock %}
+
+{% endif %}
+
+</body>
+</html>

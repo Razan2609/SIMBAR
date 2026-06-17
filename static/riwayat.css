@@ -1,0 +1,199 @@
+.page-header{
+    margin-bottom:25px;
+}
+
+.page-header h1{
+    background:linear-gradient(90deg,#8b5cf6,#6366f1);
+    background-clip:text;
+    -webkit-background-clip:text;
+    color:transparent;
+    -webkit-text-fill-color:transparent;
+    font-size:40px;
+    font-weight:700;
+    text-align: center;
+}
+
+.page-header p{
+    color:#64748b;
+    margin-top:8px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.7;
+}
+
+.riwayat-card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+thead{
+    background:#f8fafc;
+}
+
+th{
+    padding:16px;
+    text-align:left;
+    color:#475569;
+    font-weight:600;
+    border-bottom:2px solid #e2e8f0;
+}
+
+td{
+    padding:16px;
+    border-bottom:1px solid #e2e8f0;
+}
+
+tr:hover{
+    background:#f8fafc;
+}
+
+.status-menunggu{
+    background:#fef3c7;
+    color:#92400e;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.status-disetujui{
+    background:#dcfce7;
+    color:#166534;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.status-ditolak{
+    background:#fee2e2;
+    color:#991b1b;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.riwayat-card{
+    background:#fff;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+thead{
+    background:#f8fafc;
+}
+
+th{
+    padding:18px;
+    text-align:left;
+    color:#475569;
+    font-weight:600;
+    border-bottom:2px solid #e2e8f0;
+}
+
+td{
+    padding:18px;
+    border-bottom:1px solid #e2e8f0;
+}
+
+tbody tr:hover{
+    background:#f8fafc;
+}
+
+.status-menunggu,
+.status-disetujui,
+.status-ditolak{
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.status-menunggu{
+    background:#fef3c7;
+    color:#92400e;
+}
+
+.status-disetujui{
+    background:#dcfce7;
+    color:#166534;
+}
+
+.status-ditolak{
+    background:#fee2e2;
+    color:#991b1b;
+}
+
+/* ===== BUTTON KEMBALIKAN ===== */
+
+.btn-kembali{
+    display:inline-block;
+    padding:8px 14px;
+    background:#2563eb;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-size:13px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-kembali:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+
+
+/* ===== STATUS ===== */
+
+.status-menunggu{
+    background:#fef3c7;
+    color:#b45309;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.status-disetujui{
+    background:#dcfce7;
+    color:#15803d;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.status-ditolak{
+    background:#fee2e2;
+    color:#dc2626;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.status-dikembalikan{
+    background:#dbeafe;
+    color:#2563eb;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+}

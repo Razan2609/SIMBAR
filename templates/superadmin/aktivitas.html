@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Log Aktivitas{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='superadmin.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1>Log Aktivitas</h1>
+    <p>Riwayat seluruh aktivitas peminjaman barang.</p>
+</div>
+
+<div class="panel">
+
+    <table class="barang-table">
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>User ID</th>
+                <th>Barang</th>
+                <th>Tanggal Pinjam</th>
+                <th>Keperluan</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for item in data %}
+
+            <tr>
+                <td>{{ item['id'] }}</td>
+                <td>{{ item['user_id'] }}</td>
+                <td>{{ item['barang'] }}</td>
+                <td>{{ item['tanggal_pinjam'] }}</td>
+                <td>{{ item['keperluan'] }}</td>
+                <td>{{ item['status'] }}</td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

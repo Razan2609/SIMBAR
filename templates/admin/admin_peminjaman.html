@@ -1,0 +1,58 @@
+{% extends 'base.html' %} {% block title %}Data Peminjaman{% endblock %} {%
+block head %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='admin_peminjaman.css') }}"
+/>
+{% endblock %} {% block content %}
+
+<div class="page-header">
+  <h1>Data Peminjaman</h1>
+  <p>Kelola seluruh pengajuan peminjaman barang</p>
+</div>
+
+<div class="table-card">
+  <table>
+ <tr>
+    <th>Peminjam</th>
+    <th>Barang</th>
+    <th>Jumlah</th>
+    <th>Tanggal</th>
+    <th>Status</th>
+    <th>Aksi</th>
+</tr>
+</thead>
+
+<tbody>
+{% for p in data %}
+<tr>
+    <td>{{ p['username'] }}</td>
+    <td>{{ p['barang'] }}</td>
+    <td>{{ p['jumlah'] }}</td>
+    <td>{{ p['tanggal_pinjam'] }}</td>
+
+    <td>
+        {% if p['status'] == 'Menunggu' %}
+        <span class="status-menunggu">{{ p['status'] }}</span>
+        {% elif p['status'] == 'Disetujui' %}
+        <span class="status-disetujui">{{ p['status'] }}</span>
+        {% else %}
+        <span class="status-ditolak">{{ p['status'] }}</span>
+        {% endif %}
+    </td>
+
+    <td>
+        {% if p['status'] == 'Menunggu' %}
+        <a href="/setujui/{{ p['id'] }}" class="btn-setujui">Setujui</a>
+        <a href="/tolak/{{ p['id'] }}" class="btn-tolak">Tolak</a>
+        {% else %}
+        <span class="selesai">Selesai</span>
+        {% endif %}
+    </td>
+</tr>
+{% endfor %}
+</tbody>
+  </table>
+</div>
+
+{% endblock %}
